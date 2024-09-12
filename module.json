@@ -1,0 +1,22 @@
+
+{
+  "name": "kernels-gamepad-module",
+  "title": "Kernels Gamepad Module",
+  "description": "A module that allows triggering macros using a custom gamepad. Not useful for others but fun for me.",
+  "version": "1.0.0",
+  "author": "Ramon Gebben",
+  "minimumCoreVersion": "12.0.0",
+  "compatibleCoreVersion": "12.0.0",
+  "scripts": ["scripts/main.js"],
+  "styles": ["styles/styles.css"],
+  "esmodules": [],
+  "languages": [],
+  "socket": false,
+  "packs": [],
+  "dependencies": [],
+  "manifest": "${module-endpoint}",
+  "download": "${download-endpoint}",
+  "readme": "./README.md",
+  "license": "LICENSE",
+  "url": "https://github.com/RamonGebben/Kernels-Gamepad-Module"
+}
