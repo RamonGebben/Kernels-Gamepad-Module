@@ -14,8 +14,8 @@
   "socket": false,
   "packs": [],
   "dependencies": [],
-  "manifest": "${module-endpoint}",
-  "download": "${download-endpoint}",
+  "download": "https://github.com/RamonGebben/Kernels-Gamepad-Module/archive/refs/tags/1.0.0.zip",
+  "manifest": "https://raw.githubusercontent.com/RamonGebben/Kernels-Gamepad-Module/main/module.json",
   "readme": "./README.md",
   "license": "LICENSE",
   "url": "https://github.com/RamonGebben/Kernels-Gamepad-Module"
