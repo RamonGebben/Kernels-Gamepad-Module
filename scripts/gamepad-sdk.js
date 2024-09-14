@@ -6,6 +6,8 @@ class GamepadSDK {
       buttonpress: [],
       buttonrelease: [],
       axischange: [],
+      connect: [],
+      disconnect: [],
     };
 
     window.addEventListener('gamepadconnected', (e) => this.onGamepadConnected(e));
@@ -30,10 +32,17 @@ class GamepadSDK {
       buttons: event.gamepad.buttons.map(() => ({ pressed: false })),
       axes: event.gamepad.axes.slice(),
     };
+
+    // Trigger 'connect' event
+    this.triggerEvent('connect', { gamepad: event.gamepad });
   }
 
   onGamepadDisconnected(event) {
     console.log('Gamepad disconnected:', event.gamepad);
+
+    // Trigger 'disconnect' event
+    this.triggerEvent('disconnect', { gamepad: event.gamepad });
+
     delete this.gamepads[event.gamepad.index];
     delete this.previousState[event.gamepad.index];
   }
@@ -87,22 +96,3 @@ class GamepadSDK {
     this.listeners[event].forEach((callback) => callback(detail));
   }
 }
-
-// Usage example
-const myGamepad = new GamepadSDK();
-
-myGamepad.addEventListener('buttonpress', (event) => {
-  if (event.buttonIndex === 1) {
-    console.log('Button number 2 was pressed');
-  }
-});
-
-myGamepad.addEventListener('buttonrelease', (event) => {
-  if (event.buttonIndex === 1) {
-    console.log('Button number 2 was released');
-  }
-});
-
-myGamepad.addEventListener('axischange', (event) => {
-  console.log(`Axis ${event.axisIndex} changed to ${event.axisValue}`);
-});
